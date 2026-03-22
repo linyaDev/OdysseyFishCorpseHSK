@@ -6,6 +6,5 @@ _build_out/
 .vs/
 .idea/
 
-# Local build output (соберите: dotnet build -c Release)
-Assemblies/*.dll
+# PDB оставляем локальным; DLL в репозитории — готовая сборка
 Assemblies/*.pdb
