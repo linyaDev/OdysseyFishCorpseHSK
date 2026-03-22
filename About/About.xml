@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Odyssey fishing → fish corpse (HSK-style)</name>
+	<author>linyaDev</author>
+	<supportedVersions><li>1.6</li></supportedVersions>
+	<packageId>local.odyssey.fishcorpse</packageId>
+	<modVersion>1.1.1</modVersion>
+	<description>Заменяет добычу рыбалки Odyssey (сырая рыба как предмет) на трупы рыб по видам Core SK (океан / река / болото), в духе Fish Industry.
+
+Версия 1.1.1: один труп на стопку улова; смерть рыбы без DoExecutionByCut; приглушение лишних звуков при создании трупа.</description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>skyarkhangel.HSK</packageId>
+			<displayName>Core SK</displayName>
+		</li>
+		<li>
+			<packageId>Ludeon.RimWorld.Odyssey</packageId>
+			<displayName>Odyssey</displayName>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
+		<li>Ludeon.RimWorld.Odyssey</li>
+		<li>skyarkhangel.HSK</li>
+	</loadAfter>
+</ModMetaData>

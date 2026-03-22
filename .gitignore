@@ -1,0 +1,11 @@
+# Build
+[Bb]in/
+[Oo]bj/
+_build_out/
+*.user
+.vs/
+.idea/
+
+# Local build output (соберите: dotnet build -c Release)
+Assemblies/*.dll
+Assemblies/*.pdb
