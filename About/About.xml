@@ -4,10 +4,10 @@
 	<author>linyaDev</author>
 	<supportedVersions><li>1.6</li></supportedVersions>
 	<packageId>local.odyssey.fishcorpse</packageId>
-	<modVersion>1.1.1</modVersion>
+	<modVersion>1.1.2</modVersion>
 	<description>Заменяет добычу рыбалки Odyssey (сырая рыба как предмет) на трупы рыб по видам Core SK (океан / река / болото), в духе Fish Industry.
 
-Версия 1.1.1: один труп на стопку улова; смерть рыбы без DoExecutionByCut; приглушение лишних звуков при создании трупа.</description>
+Версия 1.1.2: один труп на стопку улова; смерть рыбы без DoExecutionByCut.</description>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>

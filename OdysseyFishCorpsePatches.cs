@@ -9,16 +9,16 @@ using Verse;
 namespace OdysseyFishCorpse;
 
 [StaticConstructorOnStartup]
-public static class HarmonyBootstrap
+public static class OdysseyFishCorpseHarmony
 {
-	static HarmonyBootstrap()
+	static OdysseyFishCorpseHarmony()
 	{
-		new Harmony("local.odyssey.fishcorpse").PatchAll(typeof(HarmonyBootstrap).Assembly);
+		new Harmony("local.odyssey.fishcorpse").PatchAll(typeof(OdysseyFishCorpseHarmony).Assembly);
 	}
 }
 
 [HarmonyPatch(typeof(FishingUtility), nameof(FishingUtility.GetCatchesFor))]
-public static class Patch_FishingUtility_GetCatchesFor
+public static class OdysseyFishCorpsePatches_FishingUtility_GetCatchesFor
 {
 	public static void Postfix(Pawn pawn, IntVec3 cell, bool animalFishing, ref bool rare, ref List<Thing> __result)
 	{
@@ -93,29 +93,21 @@ public static class Patch_FishingUtility_GetCatchesFor
 		}
 
 		Pawn fish = PawnGenerator.GeneratePawn(kind, null);
-		FishCorpseSoundMute.Register(fish);
-		try
+		Thing? spawned = GenSpawn.Spawn(fish, fisher.Position, map, WipeMode.Vanish);
+		if (spawned == null)
 		{
-			Thing? spawned = GenSpawn.Spawn(fish, fisher.Position, map, WipeMode.Vanish);
-			if (spawned == null)
-			{
-				fish.Destroy(DestroyMode.Vanish);
-				return null;
-			}
-
-			KillFishForCorpse(fish, fisher);
-			Corpse? corpse = fish.Corpse;
-			if (corpse != null && corpse.Spawned)
-			{
-				corpse.DeSpawn();
-			}
-
-			return corpse;
+			fish.Destroy(DestroyMode.Vanish);
+			return null;
 		}
-		finally
+
+		KillFishForCorpse(fish, fisher);
+		Corpse? corpse = fish.Corpse;
+		if (corpse != null && corpse.Spawned)
 		{
-			FishCorpseSoundMute.ScheduleUnregister(fish);
+			corpse.DeSpawn();
 		}
+
+		return corpse;
 	}
 
 	private static void KillFishForCorpse(Pawn fish, Pawn fisher)
