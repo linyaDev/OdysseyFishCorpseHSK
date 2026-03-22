@@ -7,7 +7,13 @@
 	<modVersion>1.1.2</modVersion>
 	<description>Заменяет добычу рыбалки Odyssey (сырая рыба как предмет) на трупы рыб по видам Core SK (океан / река / болото), в духе Fish Industry.
 
-Версия 1.1.2: один труп на стопку улова; смерть рыбы без DoExecutionByCut.</description>
+Версия 1.1.2: один труп на стопку улова; смерть рыбы без DoExecutionByCut.
+
+— English —
+
+Replaces Odyssey fishing loot (raw fish items) with fish corpses using Core SK fish species (ocean / river / marsh), similar to Fish Industry.
+
+v1.1.2: one corpse per stack of catch; fish die via Kill, not execution-by-cut (DoExecutionByCut).</description>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>
