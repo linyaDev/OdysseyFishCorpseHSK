@@ -93,38 +93,12 @@ public static class OdysseyFishCorpsePatches_FishingUtility_GetCatchesFor
 		}
 
 		Pawn fish = PawnGenerator.GeneratePawn(kind, null);
-		Thing? spawned = GenSpawn.Spawn(fish, fisher.Position, map, WipeMode.Vanish);
-		if (spawned == null)
-		{
-			fish.Destroy(DestroyMode.Vanish);
-			return null;
-		}
-
 		KillFishForCorpse(fish, fisher);
-		Corpse? corpse = fish.Corpse;
-		if (corpse != null && corpse.Spawned)
-		{
-			corpse.DeSpawn();
-		}
-
-		return corpse;
+		return fish.Corpse;
 	}
 
 	private static void KillFishForCorpse(Pawn fish, Pawn fisher)
 	{
-		if (fish.Dead)
-		{
-			return;
-		}
-
-		BodyPartRecord? brain = fish.health.hediffSet.GetBrain();
-		if (brain != null)
-		{
-			DamageInfo dinfo = new DamageInfo(DamageDefOf.Crush, 999f, 999f, -1f, fisher, brain, null, DamageInfo.SourceCategory.ThingOrUnknown, null, instigatorGuilty: false);
-			dinfo.SetIgnoreArmor(ignoreArmor: true);
-			fish.TakeDamage(dinfo);
-		}
-
 		if (!fish.Dead)
 		{
 			fish.Kill(null);
